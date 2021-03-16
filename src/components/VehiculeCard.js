@@ -1,43 +1,48 @@
 import * as React from 'react';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, TouchableOpacity } from 'react-native'
 
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
 const VehiculeCard = (vhInfo) => (
+    <Card style={{ width: '100%', borderRadius: 40, backgroundColor: vhInfo.vhInfo.color }} >
 
-    <Card style={{ width: '100%', borderRadius: 40, backgroundColor: vhInfo.vhInfo.color }}>
 
-        <Card.Content style={styles.card}>
+        <TouchableOpacity style={{paddingTop: 10, paddingBottom: 10}} onPress={() => vhInfo.callback('Description', { info: vhInfo.vhInfo })}>
+            <Card.Content style={styles.card}>
 
-            <Card.Cover style={{
-                backgroundColor: 'transparent',
-                width: null,
-                resizeMode: 'contain',
-                height: 100
-            }}
-                source={{ uri: vhInfo.vhInfo.img }} />
+                <Card.Cover style={{
+                    backgroundColor: 'transparent',
+                    width: null,
+                    resizeMode: 'contain',
+                    height: 100
+                }}
+                    source={{ uri: vhInfo.vhInfo.img }} />
 
-            <View style={styles.carInfo}>
-                <View style={styles.carname}>
-                    <Title style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.marque}</Title>
-                    <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.model}</Paragraph>
+                <View style={styles.carInfo}>
+                    <View style={styles.carname}>
+                        <Title style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.marque}</Title>
+                        <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.model}</Paragraph>
+                    </View>
+                    <View style={styles.carprice}>
+                        <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.prix}/j</Paragraph>
+                    </View>
                 </View>
-                <View style={styles.carprice}>
-                    <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.prix}/j</Paragraph>
-                </View>
-            </View>
-        </Card.Content>
+            </Card.Content>
+        </ TouchableOpacity >
+
         <Card.Actions style={{ width: '100%', flexDirection: 'row', justifyContent: 'flex-end', }}>
             <Button color="black" style={styles.buttonR}>Book →</Button>
         </Card.Actions>
-    </Card>
+    </Card >
+
 );
 
 export default VehiculeCard;
 
 function lightOrDark(color) {
+   
 
     var r, g, b, hsp;
 
@@ -74,7 +79,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         width: 120,
         marginRight: -8,
-        marginBottom: -8.00009,
+        marginBottom: -7.9995,
         borderRadius: 0,
         justifyContent: 'center',
         height: 50,
