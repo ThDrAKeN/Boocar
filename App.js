@@ -9,6 +9,7 @@ import {
   RegisterScreen,
   ForgotPasswordScreen,
   Dashboard,
+  Description
 } from './src/screens'
 const Stack = createStackNavigator()
 
@@ -19,7 +20,7 @@ const App = () => {
       </Appbar>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="StartScreen"
+          initialRouteName="Dashboard"
           screenOptions={{
             headerShown: false,
           }}
@@ -28,6 +29,7 @@ const App = () => {
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen name="Description" component={Description} />
           <Stack.Screen
             name="ForgotPasswordScreen"
             component={ForgotPasswordScreen}

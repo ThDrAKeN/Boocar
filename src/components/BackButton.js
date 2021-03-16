@@ -4,14 +4,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-const BackButton = ({ goBack, disconnect, navigation }) => (
-  disconnect = true ?
-    <>
-      <TouchableOpacity onPress={() => navigation.reset({ index: 0, routes: [{ name: 'StartScreen' }], })} style={styles.container2}>
-        <Icon name='close' size={30} />
-      </TouchableOpacity>
-    </>
-    :
+const BackButton = ({ goBack, navigation }) => (
     <>
       <TouchableOpacity onPress={goBack} style={styles.container}>
         <Image style={styles.image} source={require('../assets/arrow_back.png')} />
@@ -22,7 +15,7 @@ const BackButton = ({ goBack, disconnect, navigation }) => (
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: 10 + getStatusBarHeight(),
+    top: getStatusBarHeight() - 20,
     left: 4,
   },
   container2: {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import Background from '../components/Background'
 import Logo from '../components/Logo'
 import Header from '../components/Header'
@@ -10,6 +10,8 @@ import BackButton from '../components/BackButton'
 
 import VehiculeCard from '../components/VehiculeCard'
 import { ScrollView } from 'react-native-gesture-handler'
+import moment from "moment";
+import DateRangePicker from "react-native-daterange-picker";
 
 
 const cars = [
@@ -42,36 +44,68 @@ const cars = [
     img: 'https://files.porsche.com/filestore/image/multimedia/none/970-g2-tu-st-modelimage-sideshot/model/8f4579e2-fe6c-11e6-8503-0019999cd470/porsche-model.png'
   }
 ]
-const Dashboard = ({ navigation }) => (
 
-  <Background>
-    {/* <BackButton
+
+export default class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      startDate: null,
+      endDate: null,
+      displayedDate: moment(),
+    };
+  }
+
+
+  setDates = (dates) => {
+    this.setState({
+      ...dates,
+    });
+  };
+
+  navigate = (to, data) => {
+    console.log('trigeer')
+    this.props.navigation.navigate(to, { info: data })
+  };
+
+
+  render() {
+    return (
+      <Background>
+        {/* <BackButton
       disconnect={true}
       navigation={navigation}
     /> */}
-    <ScrollView  showsVerticalScrollIndicator={false}>
+
+        {/* <DateRangePicker
+          onChange={this.setDates}
+          endDate={this.state.endDate}
+          startDate={this.state.startDate}
+          displayedDate={this.state.displayedDate}
+          range
+        >
+          <Text>Click me!</Text>
+        </DateRangePicker> */}
+
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <Header>Disponible </Header>
 
 
-      {
-        cars.map((car) =>
-          <View style={{ paddingBottom: 15, paddingTop: 15 }} key={car.model}>
-            <VehiculeCard vhInfo={car} />
-          </View>
-        )
+          {
+            cars.map((car) =>
+              <View style={{ paddingBottom: 15, paddingTop: 15 }} key={car.model} >
+                <VehiculeCard vhInfo={car} navigation={this.props.navigation} callback={() => this.navigate('Description', car)} />
+              </View>
+            )
 
-      }
-
-
-      {/* <Logo />
-    <Header>Let’s start</Header>
-    <Paragraph>
-      Your amazing app starts here. Open you favorite code editor and start
-      editing this project.
-    </Paragraph> */}
-    </ScrollView>
-  </Background>
+          }
 
 
-)
 
-export default Dashboard
+        </ScrollView>
+      </Background>
+
+    )
+  }
+}
+
