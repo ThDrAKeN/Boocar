@@ -16,7 +16,7 @@ const VehiculeCard = (vhInfo) => (
                     backgroundColor: 'transparent',
                     width: null,
                     resizeMode: 'contain',
-                    height: 100
+                    height: 118
                 }}
                     source={{ uri: vhInfo.vhInfo.img }} />
 
@@ -26,7 +26,7 @@ const VehiculeCard = (vhInfo) => (
                         <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.model}</Paragraph>
                     </View>
                     <View style={styles.carprice}>
-                        <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.prix}/j</Paragraph>
+                        <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.prix} €/j</Paragraph>
                     </View>
                 </View>
             </Card.Content>
@@ -40,6 +40,39 @@ const VehiculeCard = (vhInfo) => (
 );
 
 export default VehiculeCard;
+
+
+
+const styles = StyleSheet.create({
+    buttonR: {
+
+        backgroundColor: 'white',
+        width: 120,
+        marginRight: -8,
+        marginBottom: -7.9995,
+        borderRadius: 0,
+        justifyContent: 'center',
+        height: 50,
+        borderTopLeftRadius: 30,
+        borderBottomRightRadius: 39
+    },
+    carInfo: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 20,
+        marginBottom: 10
+    },
+    carprice: {
+        justifyContent: 'flex-end'
+    },
+    carname: {
+        justifyContent: 'flex-start'
+    },
+    card: {
+        paddingLeft: 30,
+        paddingRight: 30,
+    },
+})
 
 function lightOrDark(color) {
    
@@ -72,34 +105,3 @@ function lightOrDark(color) {
         return 'dark';
     }
 }
-
-const styles = StyleSheet.create({
-    buttonR: {
-
-        backgroundColor: 'white',
-        width: 120,
-        marginRight: -8,
-        marginBottom: -7.9995,
-        borderRadius: 0,
-        justifyContent: 'center',
-        height: 50,
-        borderTopLeftRadius: 30,
-        borderBottomRightRadius: 39
-    },
-    carInfo: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: 30,
-        marginBottom: 10
-    },
-    carprice: {
-        justifyContent: 'flex-end'
-    },
-    carname: {
-        justifyContent: 'flex-start'
-    },
-    card: {
-        paddingLeft: 30,
-        paddingRight: 30,
-    },
-})
