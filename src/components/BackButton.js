@@ -1,11 +1,22 @@
 import React from 'react'
 import { TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { getStatusBarHeight } from 'react-native-status-bar-height'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const BackButton = ({ goBack }) => (
-  <TouchableOpacity onPress={goBack} style={styles.container}>
-    <Image style={styles.image} source={require('../assets/arrow_back.png')} />
-  </TouchableOpacity>
+
+const BackButton = ({ goBack, disconnect, navigation }) => (
+  disconnect = true ?
+    <>
+      <TouchableOpacity onPress={() => navigation.reset({ index: 0, routes: [{ name: 'StartScreen' }], })} style={styles.container2}>
+        <Icon name='close' size={30} />
+      </TouchableOpacity>
+    </>
+    :
+    <>
+      <TouchableOpacity onPress={goBack} style={styles.container}>
+        <Image style={styles.image} source={require('../assets/arrow_back.png')} />
+      </TouchableOpacity>
+    </>
 )
 
 const styles = StyleSheet.create({
@@ -13,6 +24,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10 + getStatusBarHeight(),
     left: 4,
+  },
+  container2: {
+    position: 'absolute',
+    top: getStatusBarHeight() - 20,
+    left: -10,
   },
   image: {
     width: 24,

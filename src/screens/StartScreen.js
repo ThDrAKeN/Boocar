@@ -8,18 +8,18 @@ import Paragraph from '../components/Paragraph'
 const StartScreen = ({ navigation }) => (
   <Background>
     <Logo />
-    <Header>Login Template</Header>
+    <Header>Boocar</Header>
     <Paragraph>
-      The easiest way to start with your amazing application.
+      Nos plus belles voitures à votre disposition
     </Paragraph>
     <Button mode="contained" onPress={() => navigation.navigate('LoginScreen')}>
-      Login
+      Connexion
     </Button>
     <Button
       mode="outlined"
       onPress={() => navigation.navigate('RegisterScreen')}
     >
-      Sign Up
+      Créer un compte
     </Button>
   </Background>
 )

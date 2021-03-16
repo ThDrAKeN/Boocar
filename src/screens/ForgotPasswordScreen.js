@@ -23,9 +23,9 @@ const ForgotPasswordScreen = ({ navigation }) => {
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Restore Password</Header>
+      <Header>Mot de passe oublié</Header>
       <TextInput
-        label="E-mail address"
+        label="Adresse email"
         returnKeyType="done"
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: '' })}
@@ -35,14 +35,14 @@ const ForgotPasswordScreen = ({ navigation }) => {
         autoCompleteType="email"
         textContentType="emailAddress"
         keyboardType="email-address"
-        description="You will receive email with password reset link."
+        description="Vous receverez un email avec le mot de passe."
       />
       <Button
         mode="contained"
         onPress={sendResetPasswordEmail}
         style={{ marginTop: 16 }}
       >
-        Send Instructions
+        Envoyer
       </Button>
     </Background>
   )

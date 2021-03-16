@@ -1,5 +1,5 @@
 import React from 'react'
-import { Provider } from 'react-native-paper'
+import { Provider, Appbar } from 'react-native-paper'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { theme } from './src/core/theme'
@@ -10,12 +10,13 @@ import {
   ForgotPasswordScreen,
   Dashboard,
 } from './src/screens'
-
 const Stack = createStackNavigator()
 
 const App = () => {
   return (
     <Provider theme={theme}>
+      <Appbar style={{  backgroundColor: 'transparent' }} dark={true}>
+      </Appbar>
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="StartScreen"

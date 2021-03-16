@@ -33,9 +33,9 @@ const LoginScreen = ({ navigation }) => {
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Welcome back.</Header>
+      <Header>Vous revoilà.</Header>
       <TextInput
-        label="Email"
+        label="Adresse email"
         returnKeyType="next"
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: '' })}
@@ -47,7 +47,7 @@ const LoginScreen = ({ navigation }) => {
         keyboardType="email-address"
       />
       <TextInput
-        label="Password"
+        label="Mot de passe"
         returnKeyType="done"
         value={password.value}
         onChangeText={(text) => setPassword({ value: text, error: '' })}
@@ -59,16 +59,16 @@ const LoginScreen = ({ navigation }) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('ForgotPasswordScreen')}
         >
-          <Text style={styles.forgot}>Forgot your password?</Text>
+          <Text style={styles.forgot}>Mot de passe oublié?</Text>
         </TouchableOpacity>
       </View>
       <Button mode="contained" onPress={onLoginPressed}>
-        Login
+        Connexion
       </Button>
       <View style={styles.row}>
-        <Text>Don’t have an account? </Text>
+        <Text>Pas de compte? </Text>
         <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
-          <Text style={styles.link}>Sign up</Text>
+          <Text style={styles.link}>Créer un compte</Text>
         </TouchableOpacity>
       </View>
     </Background>

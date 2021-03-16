@@ -13,16 +13,18 @@ import { passwordValidator } from '../helpers/passwordValidator'
 import { nameValidator } from '../helpers/nameValidator'
 
 const RegisterScreen = ({ navigation }) => {
-  const [name, setName] = useState({ value: '', error: '' })
+  const [nom, setNom] = useState({ value: '', error: '' })
+  const [prenom, setPrenom] = useState({ value: '', error: '' })
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
 
   const onSignUpPressed = () => {
-    const nameError = nameValidator(name.value)
+    const nameError = nameValidator(prenom.value)
     const emailError = emailValidator(email.value)
     const passwordError = passwordValidator(password.value)
     if (emailError || passwordError || nameError) {
-      setName({ ...name, error: nameError })
+      setPrenom({ ...prenom, error: nameError })
+      setNom({ ...nom, error: nameError })
       setEmail({ ...email, error: emailError })
       setPassword({ ...password, error: passwordError })
       return
@@ -37,17 +39,25 @@ const RegisterScreen = ({ navigation }) => {
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Create Account</Header>
+      <Header>Créer un compte</Header>
       <TextInput
-        label="Name"
+        label="Nom"
         returnKeyType="next"
-        value={name.value}
-        onChangeText={(text) => setName({ value: text, error: '' })}
-        error={!!name.error}
-        errorText={name.error}
+        value={nom.value}
+        onChangeText={(text) => setNom({ value: text, error: '' })}
+        error={!!nom.error}
+        errorText={nom.error}
       />
       <TextInput
-        label="Email"
+        label="Prenom"
+        returnKeyType="next"
+        value={prenom.value}
+        onChangeText={(text) => setPrenom({ value: text, error: '' })}
+        error={!!prenom.error}
+        errorText={prenom.error}
+      />
+      <TextInput
+        label="Adresse email"
         returnKeyType="next"
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: '' })}
@@ -59,7 +69,7 @@ const RegisterScreen = ({ navigation }) => {
         keyboardType="email-address"
       />
       <TextInput
-        label="Password"
+        label="Mot de passe"
         returnKeyType="done"
         value={password.value}
         onChangeText={(text) => setPassword({ value: text, error: '' })}
@@ -72,12 +82,12 @@ const RegisterScreen = ({ navigation }) => {
         onPress={onSignUpPressed}
         style={{ marginTop: 24 }}
       >
-        Sign Up
+        S'inscrire
       </Button>
       <View style={styles.row}>
-        <Text>Already have an account? </Text>
+        <Text>Déjà un compte? </Text>
         <TouchableOpacity onPress={() => navigation.replace('LoginScreen')}>
-          <Text style={styles.link}>Login</Text>
+          <Text style={styles.link}>Connexion</Text>
         </TouchableOpacity>
       </View>
     </Background>
