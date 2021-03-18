@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, Image, ScrollView, ImageBackground, KeyboardAvoidingView, StyleSheet } from 'react-native'
-import { Title } from 'react-native-paper';
+import { View, Image, ScrollView, ImageBackground, KeyboardAvoidingView, StyleSheet, TouchableOpacity } from 'react-native'
+import { Title, Button, Text } from 'react-native-paper';
 import BackButton from '../components/BackButton'
 import Background from '../components/Background'
 import Header from '../components/Header'
@@ -23,7 +23,13 @@ export default class Description extends React.Component {
 
                     <BackButton goBack={this.props.navigation.goBack} />
 
-                    <ScrollView showsVerticalScrollIndicator={false}>
+                    <TouchableOpacity style={styles.buttonBook} onPress={() => console.log('Pressed')}>
+                        <View mode="contained" color={'white'} >
+                            <Text>Booker Maintenant →</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    <ScrollView showsVerticalScrollIndicator={false} scrollEnabled={false}>
 
                         <View style={{ width: '100%', flexDirection: 'row' }}>
                             <Image source={{ uri: img }} style={{
@@ -31,7 +37,8 @@ export default class Description extends React.Component {
                                 width: null,
                                 resizeMode: 'contain',
                                 height: 200,
-                                width: '100%'
+                                width: '100%',
+                                transform: [{ rotateY: '180deg' }]
                             }} />
                         </View>
 
@@ -51,6 +58,18 @@ export default class Description extends React.Component {
                             </View>
                         </View>
 
+                        <View style={styles.zonePrixBook}>
+                            <View mode="contained" color={'white'} style={styles.prix} onPress={() => console.log('Pressed')}>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', fontWeight: 'bold' } : { color: 'black', fontWeight: 'bold' }} >{prix} €</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab' } : { color: 'black' } && styles.infoPrix} >/mois</Text>
+                            </View>
+                        </View>
+
+
+                        {/* <View style={styles.statsVoiture}>
+                            <Image style={styles.ico} source={require('../assets/arrow_back.png')} />
+
+                        </View> */}
 
                     </ScrollView>
                 </KeyboardAvoidingView>
@@ -61,10 +80,47 @@ export default class Description extends React.Component {
 
 
 const styles = StyleSheet.create({
-    text: {
-        color: 'white'
+    textPrix: {
+        fontWeight: 'bold'
     },
+    ico: {
+        width: 24,
+        height: 24
+    },
+    statsVoiture: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 50,
+        marginBottom: 20,
+        alignItems: 'center',
+        backgroundColor: 'red'
+    },
+    zonePrixBook: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 22,
+        marginBottom: 20,
+        alignItems: 'center',
 
+    },
+    buttonBook: {
+        zIndex: 1,
+        position: 'absolute',
+        left: '60%',
+        backgroundColor: 'white',
+        paddingTop: 25,
+        paddingBottom: 25,
+        paddingLeft: 25,
+        paddingRight: 15,
+        justifyContent: 'flex-end',
+        width: 'auto',
+        borderTopLeftRadius: 40,
+        borderBottomLeftRadius: 40
+    },
+    prix: {
+        justifyContent: 'flex-start',
+        marginTop: 20
+    },
 
     infoNom: {
         flexDirection: 'row',
@@ -82,7 +138,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 80,
         // aspectRatio: 0.3,
-       
+
     },
 
 
@@ -96,6 +152,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+
 })
 
 
