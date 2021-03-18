@@ -4,13 +4,13 @@ import { Title } from 'react-native-paper';
 import BackButton from '../components/BackButton'
 import Background from '../components/Background'
 import Header from '../components/Header'
-
+import FastImage from 'react-native-fast-image'
 
 export default class Description extends React.Component {
     render() {
-        const { img, color, marque, model, prix } = this.props.route.params.info
+        const { img, color, marque, model, prix, imgLogo } = this.props.route.params.info
 
-       
+
         return (
             <ImageBackground
                 style={{
@@ -35,13 +35,22 @@ export default class Description extends React.Component {
                             }} />
                         </View>
 
-                        <View style={styles.zoneNom}>
-                            <Title style={lightOrDark(color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{marque}</Title>
-                            <Title style={lightOrDark(color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{model}</Title>
-
+                        <View style={styles.infoNom}>
+                            <View style={styles.zoneNom}>
+                                <Title style={lightOrDark(color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{marque}</Title>
+                                <Title style={lightOrDark(color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{model}</Title>
+                            </View>
+                            <View style={styles.imgZone}>
+                                <Image
+                                    style={styles.logoImg}
+                                    source={{
+                                        uri: imgLogo ? imgLogo : '',
+                                    }}
+                                    resizeMode={FastImage.resizeMode.contain}
+                                />
+                            </View>
                         </View>
-                            <Image source={{ uri: 'https://www.codeapi.io/car' }} style={styles.logoImg} />
-                        
+
 
                     </ScrollView>
                 </KeyboardAvoidingView>
@@ -55,16 +64,28 @@ const styles = StyleSheet.create({
     text: {
         color: 'white'
     },
+
+
+    infoNom: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 30,
+        marginBottom: 10
+    },
     zoneNom: {
-        marginTop: 30
+        justifyContent: 'flex-start'
+    },
+    imgZone: {
+        justifyContent: 'flex-end'
     },
     logoImg: {
-        backgroundColor: 'red',
-        width: null,
-        resizeMode: 'contain',
-        height: 200,
-        width: '100%'
+        width: 50,
+        height: 80,
+        // aspectRatio: 0.3,
+       
     },
+
+
     container: {
         flex: 1,
         padding: 20,
