@@ -58,7 +58,7 @@ const cars = [
     marque: "Audi",
     model: "RSQ8",
     prix: "18 999",
-    color: 'rgb(140, 140, 140)',
+    color: 'rgb(176, 176, 176)',
     img: 'https://cdn.drivek.it/configurator-icon/cars/fr/800/AUDI/RS-Q8/39162_SUV-5-DOORS/audi-rs-q8-2019-side-view.png',
     imgLogo: 'https://upload.wikimedia.org/wikipedia/fr/thumb/1/15/Audi_logo.svg/1280px-Audi_logo.svg.png',
     specs: {

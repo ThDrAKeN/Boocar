@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image, ScrollView, ImageBackground, KeyboardAvoidingView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Image, ScrollView, ImageBackground, KeyboardAvoidingView, StyleSheet, TouchableOpacity, Platform } from 'react-native'
 import { Title, Button, Text } from 'react-native-paper';
 import BackButton from '../components/BackButton'
 import Background from '../components/Background'
@@ -19,9 +19,9 @@ export default class Description extends React.Component {
                     backgroundColor: color
                 }}
             >
-                <KeyboardAvoidingView style={styles.container} behavior="padding">
+                <KeyboardAvoidingView style={Platform.OS == 'ios' ? styles.backgroundIOS : styles.container} behavior="padding">
 
-                    <BackButton goBack={this.props.navigation.goBack} />
+                    <BackButton goBack={this.props.navigation.goBack} color={lightOrDark(color) == 'dark' ? 'blanc' : ''} />
 
                     <TouchableOpacity style={styles.buttonBook} onPress={() => console.log('Pressed')}>
                         <View mode="contained" color={'white'} >
@@ -68,23 +68,23 @@ export default class Description extends React.Component {
 
                         <View style={styles.statsVoiture}>
 
-                            <View style={{alignItems: 'center'}}>
+                            <View style={{ alignItems: 'center' }}>
                                 <Image style={styles.ico} source={lightOrDark(color) == 'dark' ? require('../assets/speedometer.png') : require('../assets/speedometer_black.png')} />
                                 <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 10 } : { color: 'black', marginTop: 10 }}>vitesse</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold'  } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{specs.speed}</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2  } : { color: 'black', marginTop: 2  }}>km/h</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold' } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{specs.speed}</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2 } : { color: 'black', marginTop: 2 }}>km/h</Text>
                             </View>
-                            <View style={{alignItems: 'center'}}>
+                            <View style={{ alignItems: 'center' }}>
                                 <Image style={styles.ico} source={lightOrDark(color) == 'dark' ? require('../assets/engine.png') : require('../assets/engine_black.png')} />
                                 <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 10 } : { color: 'black', marginTop: 10 }}>puissance</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold'  } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{specs.hp}</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2  } : { color: 'black', marginTop: 2  }}>ch</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold' } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{specs.hp}</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2 } : { color: 'black', marginTop: 2 }}>ch</Text>
                             </View>
-                            <View style={{alignItems: 'center', marginTop: 5}}>
+                            <View style={{ alignItems: 'center', marginTop: 5 }}>
                                 <Image style={styles.ico} source={lightOrDark(color) == 'dark' ? require('../assets/pedals.png') : require('../assets/pedals_black.png')} />
                                 <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 10 } : { color: 'black', marginTop: 10 }}>accel</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold'  } : { color: 'black', marginTop: 20, fontWeight: 'bold'   }}>{specs.acc}</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2  } : { color: 'black', marginTop: 2  }}>sec</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold' } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{specs.acc}</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2 } : { color: 'black', marginTop: 2 }}>sec</Text>
                             </View>
                         </View>
 
@@ -103,7 +103,8 @@ const styles = StyleSheet.create({
     },
     ico: {
         width: 40,
-        height: 40
+        height: 40,
+
     },
     statsVoiture: {
         marginLeft: 10,
@@ -113,13 +114,13 @@ const styles = StyleSheet.create({
         marginTop: 70,
         marginBottom: 20,
         alignItems: 'center',
-       alignItems: 'center'
+        alignItems: 'center'
     },
 
     zonePrixBook: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 22,
+        marginTop: 33,
         marginBottom: 20,
         alignItems: 'center',
 
@@ -136,7 +137,16 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         width: 'auto',
         borderTopLeftRadius: 40,
-        borderBottomLeftRadius: 40
+        borderBottomLeftRadius: 40,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: -3,
+            height: 3,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
     },
     prix: {
         justifyContent: 'flex-start',
@@ -153,6 +163,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start'
     },
     imgZone: {
+        marginTop: -3,
         justifyContent: 'flex-end'
     },
     logoImg: {
@@ -172,6 +183,17 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    backgroundIOS: {
+        flex: 1,
+        padding: 20,
+        paddingTop: 0,
+        width: '100%',
+        maxWidth: 340,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 40
     },
 
 })

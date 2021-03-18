@@ -4,12 +4,17 @@ import { getStatusBarHeight } from 'react-native-status-bar-height'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-const BackButton = ({ goBack, navigation }) => (
-    <>
-      <TouchableOpacity onPress={goBack} style={styles.container}>
-        <Image style={styles.image} source={require('../assets/arrow_back.png')} />
-      </TouchableOpacity>
-    </>
+const BackButton = ({ goBack, navigation, color }) => (
+  <>
+    <TouchableOpacity onPress={goBack} style={styles.container}>
+      {
+        color == 'blanc' ?
+          <Image style={styles.image} source={require('../assets/arrow_back_white.png')} />
+          :
+          <Image style={styles.image} source={require('../assets/arrow_back.png')} />
+      }
+    </TouchableOpacity>
+  </>
 )
 
 const styles = StyleSheet.create({
@@ -17,10 +22,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: getStatusBarHeight() - 20,
     left: 4,
+   
+    paddingRight: 20,
+    paddingBottom: 20
   },
   image: {
-    width: 24,
-    height: 24,
+    width: 30,
+    height: 30,
   },
 })
 
