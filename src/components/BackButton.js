@@ -18,11 +18,6 @@ const styles = StyleSheet.create({
     top: getStatusBarHeight() - 20,
     left: 4,
   },
-  container2: {
-    position: 'absolute',
-    top: getStatusBarHeight() - 20,
-    left: -10,
-  },
   image: {
     width: 24,
     height: 24,

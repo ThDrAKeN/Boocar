@@ -8,7 +8,7 @@ import FastImage from 'react-native-fast-image'
 
 export default class Description extends React.Component {
     render() {
-        const { img, color, marque, model, prix, imgLogo } = this.props.route.params.info
+        const { img, color, marque, model, prix, imgLogo, specs } = this.props.route.params.info
 
 
         return (
@@ -61,15 +61,33 @@ export default class Description extends React.Component {
                         <View style={styles.zonePrixBook}>
                             <View mode="contained" color={'white'} style={styles.prix} onPress={() => console.log('Pressed')}>
                                 <Text style={lightOrDark(color) == 'dark' ? { color: 'white', fontWeight: 'bold' } : { color: 'black', fontWeight: 'bold' }} >{prix} €</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab' } : { color: 'black' } && styles.infoPrix} >/mois</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab' } : { color: 'black' }} >/mois</Text>
                             </View>
                         </View>
 
 
-                        {/* <View style={styles.statsVoiture}>
-                            <Image style={styles.ico} source={require('../assets/arrow_back.png')} />
+                        <View style={styles.statsVoiture}>
 
-                        </View> */}
+                            <View style={{alignItems: 'center'}}>
+                                <Image style={styles.ico} source={lightOrDark(color) == 'dark' ? require('../assets/speedometer.png') : require('../assets/speedometer_black.png')} />
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 10 } : { color: 'black', marginTop: 10 }}>vitesse</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold'  } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{specs.speed}</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2  } : { color: 'black', marginTop: 2  }}>km/h</Text>
+                            </View>
+                            <View style={{alignItems: 'center'}}>
+                                <Image style={styles.ico} source={lightOrDark(color) == 'dark' ? require('../assets/engine.png') : require('../assets/engine_black.png')} />
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 10 } : { color: 'black', marginTop: 10 }}>puissance</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold'  } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{specs.hp}</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2  } : { color: 'black', marginTop: 2  }}>ch</Text>
+                            </View>
+                            <View style={{alignItems: 'center', marginTop: 5}}>
+                                <Image style={styles.ico} source={lightOrDark(color) == 'dark' ? require('../assets/pedals.png') : require('../assets/pedals_black.png')} />
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 10 } : { color: 'black', marginTop: 10 }}>accel</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold'  } : { color: 'black', marginTop: 20, fontWeight: 'bold'   }}>{specs.acc}</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2  } : { color: 'black', marginTop: 2  }}>sec</Text>
+                            </View>
+                        </View>
+
 
                     </ScrollView>
                 </KeyboardAvoidingView>
@@ -84,17 +102,20 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     ico: {
-        width: 24,
-        height: 24
+        width: 40,
+        height: 40
     },
     statsVoiture: {
+        marginLeft: 10,
+        marginRight: 10,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 50,
+        marginTop: 70,
         marginBottom: 20,
         alignItems: 'center',
-        backgroundColor: 'red'
+       alignItems: 'center'
     },
+
     zonePrixBook: {
         flexDirection: 'row',
         justifyContent: 'space-between',
