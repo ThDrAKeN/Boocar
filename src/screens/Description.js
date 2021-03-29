@@ -7,6 +7,12 @@ import Header from '../components/Header'
 import FastImage from 'react-native-fast-image'
 
 export default class Description extends React.Component {
+
+    navigate = (to, data) => {
+        this.props.navigation.navigate(to, { info: data })
+      };
+
+      
     render() {
         const { img, color, marque, model, prix, imgLogo, specs } = this.props.route.params.info
 
@@ -23,7 +29,7 @@ export default class Description extends React.Component {
 
                     <BackButton goBack={this.props.navigation.goBack} color={lightOrDark(color) == 'dark' ? 'blanc' : ''} />
 
-                    <TouchableOpacity style={styles.buttonBook} onPress={() => console.log('Pressed')}>
+                    <TouchableOpacity style={styles.buttonBook} onPress={() => this.navigate('InfoUser', this.props.route.params.info)}>
                         <View mode="contained" color={'white'} >
                             <Text>Booker Maintenant →</Text>
                         </View>

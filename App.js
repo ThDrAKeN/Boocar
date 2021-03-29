@@ -10,8 +10,11 @@ import {
   RegisterScreen,
   ForgotPasswordScreen,
   Dashboard,
-  Description
+  Description,
 } from './src/screens'
+
+import InformationsScreen from './src/screens/InformationsScreen'
+import FinalScreen from './src/screens/FinalScreen'
 const Stack = createStackNavigator()
 
 const App = () => {
@@ -33,6 +36,8 @@ const App = () => {
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="Description" component={Description} />
+          <Stack.Screen name="InfoUser" component={InformationsScreen} />
+          <Stack.Screen name="Final" component={FinalScreen} />
           <Stack.Screen
             name="ForgotPasswordScreen"
             component={ForgotPasswordScreen}
