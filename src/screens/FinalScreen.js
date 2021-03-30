@@ -4,11 +4,12 @@ import { Text } from 'react-native-paper'
 import Background from '../components/Background'
 import Logo from '../components/Logo'
 import Header from '../components/Header'
+import HeaderCenter from '../components/HeaderCenter'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
 import { theme } from '../core/theme'
-import { emailValidator } from '../helpers/emailValidator'
+import { emailValidator } from '../helpers/emailValidator' 
 import { nameValidator } from '../helpers/nameValidator'
 import { Paragraph } from 'react-native-paper'
 
@@ -29,16 +30,20 @@ const FinalScreen = ({ navigation }) => {
   return (
     <Background>
       <BackButton goBack={navigation.goBack} />
-      <Logo />
-      <Header>Votre demande à été enregistrée</Header>
-      <Paragraph style={{textAlign: 'center'}}>Un conseiller prendra contact avec vous au plus vite.</Paragraph>
+      {/* <Logo /> */}
+      <HeaderCenter>Votre demande à été enregistrée</HeaderCenter>
+
+      <Paragraph>Référence de votre demande</Paragraph>
+      <Paragraph style={{fontWeight: 'bold'}}>148439</Paragraph>
+
+      <Paragraph style={{fontSize: 10, textAlign: 'center', marginTop: 20}}>Une conseiller prendra contact avec vous au plus vite. {"\n"} Un mail reprenant les informations de votre demande vous à été envoyé</Paragraph>
       
       <Button
         mode="contained"
         onPress={onSignUpPressed}
         style={{ marginTop: 24 }}
       >
-        Consulter d'autres
+        Accueil
       </Button>
     </Background>
   )

@@ -9,7 +9,7 @@ const VehiculeCard = (vhInfo) => (
     <Card style={{ width: '100%', borderRadius: 40, backgroundColor: vhInfo.vhInfo.color }} >
 
 
-        <TouchableOpacity style={{paddingTop: 10, paddingBottom: 10}} onPress={() => vhInfo.callback('Description', { info: vhInfo.vhInfo })}>
+        <TouchableOpacity style={{ paddingTop: 10, paddingBottom: 10 }} onPress={() => vhInfo.callback('Description', { info: vhInfo.vhInfo })}>
             <Card.Content style={styles.card}>
 
                 <Card.Cover style={{
@@ -33,7 +33,9 @@ const VehiculeCard = (vhInfo) => (
         </ TouchableOpacity >
 
         <Card.Actions style={{ width: '100%', flexDirection: 'row', justifyContent: 'flex-end', }}>
-            <Button color="black" style={styles.buttonR}>Book →</Button>
+            <TouchableOpacity onPress={() => vhInfo.book('InfoUser', { info: vhInfo.vhInfo })} activeOpacity={.9}>
+                <Button color="black" style={styles.buttonR}>Book →</Button>
+            </TouchableOpacity>
         </Card.Actions>
     </Card >
 
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
 })
 
 function lightOrDark(color) {
-   
+
 
     var r, g, b, hsp;
 

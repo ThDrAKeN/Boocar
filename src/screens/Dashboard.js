@@ -130,7 +130,7 @@ export default class Dashboard extends React.Component {
           {
             cars.map((car) =>
               <View style={{ paddingBottom: 15, paddingTop: 15 }} key={car.model} >
-                <VehiculeCard vhInfo={car} navigation={this.props.navigation} callback={() => this.navigate('Description', car)} />
+                <VehiculeCard vhInfo={car} navigation={this.props.navigation} callback={() => this.navigate('Description', car)} book={() => this.navigate('InfoUser', car)}/>
               </View>
             )
 

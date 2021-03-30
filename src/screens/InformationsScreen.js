@@ -23,7 +23,7 @@ const InformationsScreen = ({ navigation }) => {
     const nameError = nameValidator(prenom.value)
     const emailError = emailValidator(email.value)
     const phoneError = phoneValidator(phone.value)
-    if (emailError || passwordError || nameError) {
+    if (emailError || phoneError || nameError) {
       setPrenom({ ...prenom, error: nameError })
       setNom({ ...nom, error: nameError })
       setEmail({ ...email, error: emailError })
@@ -38,7 +38,7 @@ const InformationsScreen = ({ navigation }) => {
   return (
     <Background>
       <BackButton goBack={navigation.goBack} />
-      <Logo />
+      {/* <Logo /> */}
       <Header>Vos informations de contact</Header>
       <TextInput
         label="Nom"
@@ -75,7 +75,7 @@ const InformationsScreen = ({ navigation }) => {
         onChangeText={(text) => setPhone({ value: text, error: '' })}
         error={!!phone.error}
         errorText={phone.error}
-        
+        keyboardType='phone-pad'
       />
       <Button
         mode="contained"
