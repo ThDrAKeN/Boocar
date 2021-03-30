@@ -9,7 +9,7 @@ import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
 import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
-import { passwordValidator } from '../helpers/passwordValidator'
+import { passwordValidator } from '../helpers/phoneValidator'
 import { nameValidator } from '../helpers/nameValidator'
 
 const RegisterScreen = ({ navigation }) => {

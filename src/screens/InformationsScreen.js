@@ -9,7 +9,7 @@ import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
 import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
-import { passwordValidator } from '../helpers/passwordValidator'
+import { phoneValidator } from '../helpers/phoneValidator'
 import { nameValidator } from '../helpers/nameValidator'
 import { Paragraph } from 'react-native-paper'
 
@@ -17,17 +17,17 @@ const InformationsScreen = ({ navigation }) => {
   const [nom, setNom] = useState({ value: '', error: '' })
   const [prenom, setPrenom] = useState({ value: '', error: '' })
   const [email, setEmail] = useState({ value: '', error: '' })
-  const [password, setPassword] = useState({ value: '', error: '' })
+  const [phone, setPhone] = useState({ value: '', error: '' })
 
   const onSignUpPressed = () => {
     const nameError = nameValidator(prenom.value)
     const emailError = emailValidator(email.value)
-    const passwordError = passwordValidator(password.value)
+    const phoneError = phoneValidator(phone.value)
     if (emailError || passwordError || nameError) {
       setPrenom({ ...prenom, error: nameError })
       setNom({ ...nom, error: nameError })
       setEmail({ ...email, error: emailError })
-      setPassword({ ...password, error: passwordError })
+      setPhone({ ...phone, error: phoneError })
       return
     }
     navigation.navigate({
@@ -71,10 +71,10 @@ const InformationsScreen = ({ navigation }) => {
       <TextInput
         label="Numéro de téléphone"
         returnKeyType="done"
-        value={password.value}
-        onChangeText={(text) => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
+        value={phone.value}
+        onChangeText={(text) => setPhone({ value: text, error: '' })}
+        error={!!phone.error}
+        errorText={phone.error}
         
       />
       <Button
