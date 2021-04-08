@@ -77,19 +77,19 @@ export default class Description extends React.Component {
                             <View style={{ alignItems: 'center' }}>
                                 <Image style={styles.ico} source={lightOrDark(color) == 'dark' ? require('../assets/speedometer.png') : require('../assets/speedometer_black.png')} />
                                 <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 10 } : { color: 'black', marginTop: 10 }}>vitesse</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold' } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{specs.speed}</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold' } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{JSON.parse(specs).speed}</Text>
                                 <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2 } : { color: 'black', marginTop: 2 }}>km/h</Text>
                             </View>
                             <View style={{ alignItems: 'center' }}>
                                 <Image style={styles.ico} source={lightOrDark(color) == 'dark' ? require('../assets/engine.png') : require('../assets/engine_black.png')} />
                                 <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 10 } : { color: 'black', marginTop: 10 }}>puissance</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold' } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{specs.hp}</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold' } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{JSON.parse(specs).hp}</Text>
                                 <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2 } : { color: 'black', marginTop: 2 }}>ch</Text>
                             </View>
                             <View style={{ alignItems: 'center', marginTop: 5 }}>
                                 <Image style={styles.ico} source={lightOrDark(color) == 'dark' ? require('../assets/pedals.png') : require('../assets/pedals_black.png')} />
                                 <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 10 } : { color: 'black', marginTop: 10 }}>accel</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold' } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{specs.acc}</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: 'white', marginTop: 20, fontWeight: 'bold' } : { color: 'black', marginTop: 20, fontWeight: 'bold' }}>{JSON.parse(specs).acc}</Text>
                                 <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab', marginTop: 2 } : { color: 'black', marginTop: 2 }}>sec</Text>
                             </View>
                         </View>
