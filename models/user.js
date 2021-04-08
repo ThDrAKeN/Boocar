@@ -28,18 +28,21 @@ saveUser = (userinfo) => new Promise((resolve,reject)=>{
     })
 });
 
-getUserByToken = (token) => new Promise((resolve, reject) => {
-    var decoded ;
-    try{
-        decoded = jwt.verify(token,'secretkey');
-        resolve(decoded);
-    }catch(e){
-        reject();
-    }
+getDispo = () => new Promise((resolve,reject)=>{
+
+    db.query("SELECT DISTINCT voiture.idV , color, img, model, prix, specs, marque.imgLogo, marque.marqueVh as 'marque' from Voiture, marque, reserver, reservation  where marque.marqueVh = voiture.marqueVh  AND reservation.idR = reserver.idR  AND voiture.idV not in(select idV from reserver, reservation where reservation.idR = reserver.idR AND reservation.statu = 'working')", function (error, results, fields) {
+        if (error){
+            reject();
+        }else{
+            resolve(
+                results
+            );
+        }
+    });
 });
+
 
 // The code below export the above functios so it can be used in other files.
 module.exports = {
-    saveUser,
-    getUserByToken
+    getDispo
 };
