@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, RefreshControl } from 'react-native'
 import Background from '../components/Background'
 import Logo from '../components/Logo'
 import Header from '../components/Header'
@@ -91,7 +91,8 @@ export default class Dashboard extends React.Component {
       startDate: null,
       endDate: null,
       displayedDate: moment(),
-      cars: null
+      cars: null,
+      refreshing: false,
     };
   }
 
@@ -132,7 +133,13 @@ export default class Dashboard extends React.Component {
           <Text>Click me!</Text>
         </DateRangePicker> */}
 
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView showsVerticalScrollIndicator={false} 
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this.componentDidMount}
+          />
+        }>
           <Header>Disponible </Header>
 
 
