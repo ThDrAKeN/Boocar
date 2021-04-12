@@ -96,9 +96,20 @@ export default class Dashboard extends React.Component {
 
   componentDidMount = async () => {
 
-    const data = await axios.get('http://192.168.0.15:3000/test')
-    this.setState({cars: data.data}) 
+    // const data = await axios.get('http://192.168.0.15:3000/test')
 
+
+    // Tweak pour éviter les proplèmes de fuites de mémoir avec jest - Seulement si Ce n'est pas jest
+    if (process.env.JEST_WORKER_ID == undefined) {
+      await axios.get('http://192.168.0.15:3000/test', {
+      })
+        .then(response => {
+          this.setState({ cars: response.data })
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
   }
 
   // setDates = (dates) => {
@@ -115,7 +126,7 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <Background>
-     
+
 
         {/* <DateRangePicker
           onChange={this.setDates}
@@ -127,20 +138,20 @@ export default class Dashboard extends React.Component {
           <Text>Click me!</Text>
         </DateRangePicker> */}
 
-        <ScrollView showsVerticalScrollIndicator={false} 
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.refreshing}
-            onRefresh={this.componentDidMount}
-          />
-        }>
+        <ScrollView showsVerticalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.componentDidMount}
+            />
+          }>
           <Header>Disponible </Header>
 
 
-          {  this.state.cars != null ?
+          {this.state.cars != null ?
             this.state.cars.map((car) =>
               <View style={{ paddingBottom: 15, paddingTop: 15 }} key={car.model} >
-                <VehiculeCard vhInfo={car} navigation={this.props.navigation} callback={() => this.navigate('Description', car)} book={() => this.navigate('InfoUser', {idV : car["idV"]})}/>
+                <VehiculeCard vhInfo={car} navigation={this.props.navigation} callback={() => this.navigate('Description', car)} book={() => this.navigate('InfoUser', { idV: car["idV"] })} />
               </View>
             )
             :

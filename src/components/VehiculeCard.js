@@ -3,8 +3,6 @@ import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 import { StyleSheet, View, TouchableOpacity } from 'react-native'
 
 
-const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
-
 const VehiculeCard = (vhInfo) => (
     <Card style={{ width: '100%', borderRadius: 40, backgroundColor: vhInfo.vhInfo.color }} >
 
