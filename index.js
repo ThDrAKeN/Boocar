@@ -4,7 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 /* Getting all the db querys */
-const { saveUser, findUser, UpdateToken, getDispo } = require('./models/user');
+const { saveUser, findUser, UpdateToken, getDispo, setRes } = require('./models/user');
 /* This middle ware checks if the token given by the user is right */
 const { authenticate } = require('./middleware/authenticate');
 
@@ -28,8 +28,10 @@ app.get('/', function (req, res, next) {
     It uses promises.
  */
 app.post('/createRes', (req, res, next) => {
-    saveUser(req.body).then((result) => {
-        return res.send('ok');
+    setRes(req.body).then((result) => {
+        console.log("🚀 ~ file: index.js ~ line 32 ~ setRes ~ result", result)
+        const id = result
+        return res.send({id});
     }).catch((e) => {
         return res.status(400).send(e);
     });
