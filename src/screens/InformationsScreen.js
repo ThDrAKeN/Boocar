@@ -47,6 +47,7 @@ const InformationsScreen = ({ navigation, route }) => {
           'Final',
           {num: randomNum}
         )
+        return response.status
       }, (error) => {
         console.log(error);
       });

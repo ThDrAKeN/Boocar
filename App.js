@@ -38,10 +38,10 @@ const App = () => {
           <Stack.Screen name="Description" component={Description} />
           <Stack.Screen name="InfoUser" component={InformationsScreen} />
           <Stack.Screen name="Final" component={FinalScreen} />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="ForgotPasswordScreen"
             component={ForgotPasswordScreen}
-          />
+          /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

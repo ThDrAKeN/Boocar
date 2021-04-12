@@ -19,25 +19,21 @@ const car = {
 }
 
 describe('<VehiculeCard />', () => {
+  const tree = renderer.create(<VehiculeCard vhInfo={car} />).toJSON();
   it('Rendu', () => {
-    const tree = renderer.create(<VehiculeCard vhInfo={car} />).toJSON();
     expect(tree.children.length).toBe(1);
   });
   it('Rendu du champ marque', () => {
-    const tree = renderer.create(<VehiculeCard vhInfo={car} />).toJSON();
     x = 0
     expect(tree.children[0].children[0].children[0].children[1].children[x].children[0].children[0]).toBe('Marque');
   });
   it('Rendu du champ Model', () => {
-    const tree = renderer.create(<VehiculeCard vhInfo={car} />).toJSON();
     expect(tree.children[0].children[0].children[0].children[1].children[0].children[1].children[0]).toBe('Model');
   });
   it('Rendu du champ prix', () => {
-    const tree = renderer.create(<VehiculeCard vhInfo={car} />).toJSON();
     expect(tree.children[0].children[0].children[0].children[1].children[1].children[0].children[0]).toBe('12 999');
   });
   it('Rendu du champ image', () => {
-    const tree = renderer.create(<VehiculeCard vhInfo={car} />).toJSON();
     expect(tree.children[0].children[0].children[0].children[0].children[0].props.source.uri).toBe('img');
   });
   it('Click sur card -> open desc', () => {
@@ -53,7 +49,7 @@ describe('<VehiculeCard />', () => {
 
     
     const wrapper = shallow(<VehiculeCard vhInfo={car} book={() => testFn()} />);
-    wrapper.find('ForwardRef').at(1).simulate('press').debug()
+    wrapper.find('ForwardRef').at(1).simulate('press')
     expect( testFn ).toHaveBeenCalled()
   });
 });
