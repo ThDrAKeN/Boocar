@@ -1,4 +1,4 @@
-const {getUserByToken} = require('../models/user');
+const {getUserByToken} = require('../models/all');
 
 // First we call the model using the above code.
 // We pass in the token from the request header and see if we can get the

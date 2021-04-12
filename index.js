@@ -4,7 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 /* Getting all the db querys */
-const { saveUser, findUser, UpdateToken, getDispo, setRes } = require('./models/user');
+const { getDispo, setRes } = require('./models/all');
 /* This middle ware checks if the token given by the user is right */
 const { authenticate } = require('./middleware/authenticate');
 
