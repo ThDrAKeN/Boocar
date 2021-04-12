@@ -36,10 +36,10 @@ const InformationsScreen = ({ navigation, route }) => {
       idV: route.params.info.idV,
       id_attente: randomNum,
       dateHeure: "2020",
-      numeroTel: "062458464",
-      adrMail: "test",
-      nom: "test",
-      prenom: "test"
+      numeroTel: phone,
+      adrMail: email,
+      nom: nom,
+      prenom: prenom
     })
       .then((response) => {
         console.log(response.status);

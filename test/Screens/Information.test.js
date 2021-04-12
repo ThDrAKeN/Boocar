@@ -15,11 +15,11 @@ jest.useFakeTimers()
 describe('<InformationsScreen />', () => {
     const wrapper = shallow(<InformationsScreen navigation={'toto'} />);
     it('Tous les text champs sont rendu', () => {
-        // const tree = renderer.create(<Dashboard />).toJSON();
-        // expect(tree.children.length).toBe(1);
-
-        // console.log(wrapper.debug())
+       
         expect(wrapper.find('TextInput').length).toBe(4);
 
+    });
+    afterAll(done => {
+        done();
     });
 });

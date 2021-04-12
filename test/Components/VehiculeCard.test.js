@@ -8,7 +8,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
-
+jest.useFakeTimers()
 
 const car = {
   marque: "Marque",
@@ -52,4 +52,7 @@ describe('<VehiculeCard />', () => {
     wrapper.find('ForwardRef').at(1).simulate('press')
     expect( testFn ).toHaveBeenCalled()
   });
+  afterAll(done => {
+    done();
+});
 });

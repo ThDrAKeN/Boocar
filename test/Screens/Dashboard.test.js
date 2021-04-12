@@ -51,4 +51,7 @@ describe('<Dashboard />', () => {
     expect(wrapper.find('View').find('View').children().length).toBe(2);
 
   });
+  afterAll(done => {
+    done();
+});
 });
