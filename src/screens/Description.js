@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { View, Image, ScrollView, ImageBackground, KeyboardAvoidingView, StyleSheet, TouchableOpacity, Platform } from 'react-native'
-import { Title, Button, Text } from 'react-native-paper';
+import { Title, Text } from 'react-native-paper';
 import BackButton from '../components/BackButton'
-import Background from '../components/Background'
-import Header from '../components/Header'
 import FastImage from 'react-native-fast-image'
 
 export default class Description extends React.Component {

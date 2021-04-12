@@ -1,16 +1,10 @@
-import React, { useState } from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
-import { Text } from 'react-native-paper'
+import React from 'react'
+import { StyleSheet } from 'react-native'
 import Background from '../components/Background'
-import Logo from '../components/Logo'
-import Header from '../components/Header'
 import HeaderCenter from '../components/HeaderCenter'
 import Button from '../components/Button'
-import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
 import { theme } from '../core/theme'
-import { emailValidator } from '../helpers/emailValidator' 
-import { nameValidator } from '../helpers/nameValidator'
 import { Paragraph } from 'react-native-paper'
 
 const FinalScreen = ({ navigation, route }) => {

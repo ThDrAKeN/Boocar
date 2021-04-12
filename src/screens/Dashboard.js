@@ -1,17 +1,14 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, RefreshControl } from 'react-native'
+import { View, RefreshControl } from 'react-native'
 import Background from '../components/Background'
-import Logo from '../components/Logo'
 import Header from '../components/Header'
-import Paragraph from '../components/Paragraph'
-import Button from '../components/Button'
-import BackButton from '../components/BackButton'
+
 
 
 import VehiculeCard from '../components/VehiculeCard'
 import { ScrollView } from 'react-native-gesture-handler'
 import moment from "moment";
-import DateRangePicker from "react-native-daterange-picker";
+// import DateRangePicker from "react-native-daterange-picker";
 import axios from 'axios'
 
 // const cars = [
@@ -118,10 +115,7 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <Background>
-        {/* <BackButton
-      disconnect={true}
-      navigation={navigation}
-    /> */}
+     
 
         {/* <DateRangePicker
           onChange={this.setDates}

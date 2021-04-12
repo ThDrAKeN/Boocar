@@ -76,20 +76,17 @@ const styles = StyleSheet.create({
     },
 })
 
+// Fonction pour couleur text par rapport au background
 function lightOrDark(color) {
 
 
     var r, g, b, hsp;
-
-
 
     color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
 
     r = color[1];
     g = color[2];
     b = color[3];
-
-
 
     hsp = Math.sqrt(
         0.299 * (r * r) +

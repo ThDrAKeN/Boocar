@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
-import { Text } from 'react-native-paper'
+import { StyleSheet } from 'react-native'
 import Background from '../components/Background'
-import Logo from '../components/Logo'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
@@ -11,7 +9,6 @@ import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
 import { phoneValidator } from '../helpers/phoneValidator'
 import { nameValidator } from '../helpers/nameValidator'
-import { Paragraph } from 'react-native-paper'
 
 import axios from 'axios'
 
@@ -97,7 +94,7 @@ const InformationsScreen = ({ navigation, route }) => {
         onChangeText={(text) => setPhone({ value: text, error: '' })}
         error={!!phone.error}
         errorText={phone.error}
-        keyboardType='phone-pad'
+        keyboardType="phone-pad"
       />
       <Button
         mode="contained"
@@ -110,15 +107,6 @@ const InformationsScreen = ({ navigation, route }) => {
   )
 }
 
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    marginTop: 4,
-  },
-  link: {
-    fontWeight: 'bold',
-    color: theme.colors.primary,
-  },
-})
+
 
 export default InformationsScreen
