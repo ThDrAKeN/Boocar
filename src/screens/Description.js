@@ -29,7 +29,7 @@ export default class Description extends React.Component {
 
                     <BackButton goBack={this.props.navigation.goBack} color={lightOrDark(color) == 'dark' ? 'blanc' : ''} />
 
-                    <TouchableOpacity style={styles.buttonBook} onPress={() => this.navigate('InfoUser', this.props.route.params.info)}>
+                    <TouchableOpacity style={styles.buttonBook} onPress={() => this.navigate('InfoUser', { idV: this.props.route.params.info["idV"]})}>
                         <View mode="contained" color={'white'} >
                             <Text>Booker Maintenant →</Text>
                         </View>

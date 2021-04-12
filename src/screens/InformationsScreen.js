@@ -13,16 +13,20 @@ import { phoneValidator } from '../helpers/phoneValidator'
 import { nameValidator } from '../helpers/nameValidator'
 import { Paragraph } from 'react-native-paper'
 
-const InformationsScreen = ({ navigation }) => {
+import axios from 'axios'
+
+const InformationsScreen = ({ navigation, route }) => {
   const [nom, setNom] = useState({ value: '', error: '' })
   const [prenom, setPrenom] = useState({ value: '', error: '' })
   const [email, setEmail] = useState({ value: '', error: '' })
   const [phone, setPhone] = useState({ value: '', error: '' })
+  
 
-  const onSignUpPressed = () => {
+  const onSignUpPressed = async () => {
     const nameError = nameValidator(prenom.value)
     const emailError = emailValidator(email.value)
     const phoneError = phoneValidator(phone.value)
+    const randomNum = Math.floor(100000000 + Math.random() * 800000000)
     if (emailError || phoneError || nameError) {
       setPrenom({ ...prenom, error: nameError })
       setNom({ ...nom, error: nameError })
@@ -30,9 +34,27 @@ const InformationsScreen = ({ navigation }) => {
       setPhone({ ...phone, error: phoneError })
       return
     }
-    navigation.navigate({
-       name: 'Final'
+
+    axios.post('http://192.168.0.15:3000/createRes', {
+      idV: route.params.info.idV,
+      id_attente: randomNum,
+      dateHeure: "2020",
+      numeroTel: "062458464",
+      adrMail: "test",
+      nom: "test",
+      prenom: "test"
     })
+      .then((response) => {
+        console.log(response.status);
+        navigation.navigate(
+          'Final',
+          {num: randomNum}
+        )
+      }, (error) => {
+        console.log(error);
+      });
+
+
   }
 
   return (
