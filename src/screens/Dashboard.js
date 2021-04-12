@@ -101,11 +101,11 @@ export default class Dashboard extends React.Component {
 
   }
 
-  setDates = (dates) => {
-    this.setState({
-      ...dates,
-    });
-  };
+  // setDates = (dates) => {
+  //   this.setState({
+  //     ...dates,
+  //   });
+  // };
 
   navigate = (to, data) => {
     this.props.navigation.navigate(to, { info: data })
