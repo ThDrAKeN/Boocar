@@ -4,3 +4,5 @@
 // export { default as ForgotPasswordScreen } from './oldScreens/ForgotPasswordScreen'
 export { default as Dashboard } from './Dashboard'
 export { default as Description } from './Description'
+export { default as ConsultationDemandes } from './ConsultationDemandes'
+export { default as Reservation } from './Reservation'

@@ -2,7 +2,7 @@ import React from 'react'
 import { View, RefreshControl } from 'react-native'
 import Background from '../components/Background'
 import Header from '../components/Header'
-
+import Button from '../components/Button'
 
 
 import VehiculeCard from '../components/VehiculeCard'
@@ -160,8 +160,10 @@ export default class Dashboard extends React.Component {
           }
 
 
-
+          <Button onPress={() => this.navigate('Demandes')}>Mes Demandes</Button>
         </ScrollView>
+
+
       </Background>
 
     )

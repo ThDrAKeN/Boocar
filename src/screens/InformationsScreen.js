@@ -9,7 +9,7 @@ import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
 import { phoneValidator } from '../helpers/phoneValidator'
 import { nameValidator } from '../helpers/nameValidator'
-
+import moment from 'moment'
 import axios from 'axios'
 
 const InformationsScreen = ({ navigation, route }) => {
@@ -31,15 +31,16 @@ const InformationsScreen = ({ navigation, route }) => {
       setPhone({ ...phone, error: phoneError })
       return
     }
+    const dataNow =  moment().format('L');
 
     axios.post('http://192.168.0.15:3000/createRes', {
       idV: route.params.info.idV,
       id_attente: randomNum,
-      dateHeure: "2020",
-      numeroTel: phone,
-      adrMail: email,
-      nom: nom,
-      prenom: prenom
+      dateHeure: dataNow,
+      numeroTel: phone.value,
+      adrMail: email.value,
+      nom: nom.value,
+      prenom: prenom.value
     })
       .then((response) => {
         console.log(response.status);

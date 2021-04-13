@@ -7,7 +7,7 @@ const VehiculeCard = (vhInfo) => (
     <Card style={{ width: '100%', borderRadius: 40, backgroundColor: vhInfo.vhInfo.color }} >
 
 
-        <TouchableOpacity style={{ paddingTop: 10, paddingBottom: 10 }} onPress={() => vhInfo.callback('Description', { info: vhInfo.vhInfo })}>
+        <TouchableOpacity style={{ paddingTop: 10, paddingBottom: 10 }} onPress={vhInfo.etatRes ? null :() => vhInfo.callback('Description', { info: vhInfo.vhInfo })}>
             <Card.Content style={styles.card}>
 
                 <Card.Cover style={{
@@ -22,17 +22,18 @@ const VehiculeCard = (vhInfo) => (
                     <View style={styles.carname}>
                         <Title style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.marque}</Title>
                         <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.model}</Paragraph>
+                        {vhInfo.etatRes ? <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white', position: 'absolute', top: 98, fontSize: 10 } : { color: 'black', position: 'absolute', top: 100, fontSize: 10 }}>{vhInfo.vhInfo.id_attente}</Paragraph> :null}
                     </View>
                     <View style={styles.carprice}>
-                        <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.prix} €/j</Paragraph>
+                        {vhInfo.etatRes ? <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.dateHeure}</Paragraph> :<Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.prix} €/j</Paragraph>}
                     </View>
                 </View>
             </Card.Content>
         </ TouchableOpacity >
 
         <Card.Actions style={{ width: '100%', flexDirection: 'row', justifyContent: 'flex-end', }}>
-            <TouchableOpacity onPress={() => vhInfo.book('InfoUser', { info: vhInfo.vhInfo })} activeOpacity={.9}>
-                <Button color="black" style={styles.buttonR}>Book →</Button>
+            <TouchableOpacity onPress={vhInfo.etatRes ? null : () => vhInfo.book('InfoUser', { info: vhInfo.vhInfo })} activeOpacity={.9}>
+                <Button color="black" style={styles.buttonR}>{vhInfo.etatRes ? vhInfo.etatRes : 'Book →'}</Button>
             </TouchableOpacity>
         </Card.Actions>
     </Card >

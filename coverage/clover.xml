@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1618298822853" clover="3.2.0">
-  <project timestamp="1618298822854" name="All files">
-    <metrics statements="78" coveredstatements="54" conditionals="49" coveredconditionals="28" methods="29" coveredmethods="17" elements="156" coveredelements="99" complexity="0" loc="78" ncloc="78" packages="5" files="13" classes="13"/>
+<coverage generated="1618329613760" clover="3.2.0">
+  <project timestamp="1618329613760" name="All files">
+    <metrics statements="109" coveredstatements="70" conditionals="73" coveredconditionals="35" methods="43" coveredmethods="23" elements="225" coveredelements="128" complexity="0" loc="109" ncloc="109" packages="5" files="16" classes="16"/>
     <package name="assets">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="arrow_back.png" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/assets/arrow_back.png">
@@ -10,58 +10,64 @@
       </file>
     </package>
     <package name="components">
-      <metrics statements="27" coveredstatements="23" conditionals="20" coveredconditionals="5" methods="9" coveredmethods="5"/>
+      <metrics statements="30" coveredstatements="25" conditionals="34" coveredconditionals="10" methods="10" coveredmethods="5"/>
       <file name="BackButton.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/components/BackButton.js">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
       </file>
       <file name="Background.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/components/Background.js">
         <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="5" count="2" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
       </file>
       <file name="Button.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/components/Button.js">
         <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="6" count="1" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
       </file>
       <file name="Header.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/components/Header.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+      </file>
+      <file name="Logo.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/components/Logo.js">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
       <file name="TextInput.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/components/TextInput.js">
         <metrics statements="3" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="6" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
       </file>
       <file name="VehiculeCard.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/components/VehiculeCard.js">
-        <metrics statements="13" coveredstatements="12" conditionals="8" coveredconditionals="4" methods="4" coveredmethods="4"/>
-        <line num="6" count="2" type="stmt"/>
+        <metrics statements="13" coveredstatements="12" conditionals="22" coveredconditionals="9" methods="4" coveredmethods="4"/>
+        <line num="6" count="3" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="83" count="3" type="stmt"/>
-        <line num="85" count="3" type="stmt"/>
+        <line num="10" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="84" count="3" type="stmt"/>
         <line num="86" count="3" type="stmt"/>
         <line num="87" count="3" type="stmt"/>
-        <line num="89" count="3" type="stmt"/>
-        <line num="96" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="98" count="0" type="stmt"/>
-        <line num="102" count="3" type="stmt"/>
+        <line num="88" count="3" type="stmt"/>
+        <line num="90" count="3" type="stmt"/>
+        <line num="97" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="103" count="3" type="stmt"/>
       </file>
     </package>
     <package name="core">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="theme.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/core/theme.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
       </file>
     </package>
     <package name="helpers">
@@ -88,9 +94,31 @@
       </file>
     </package>
     <package name="screens">
-      <metrics statements="38" coveredstatements="18" conditionals="9" coveredconditionals="3" methods="17" coveredmethods="9"/>
+      <metrics statements="66" coveredstatements="32" conditionals="19" coveredconditionals="5" methods="30" coveredmethods="15"/>
+      <file name="ConsultationDemandes.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/screens/ConsultationDemandes.js">
+        <metrics statements="19" coveredstatements="9" conditionals="8" coveredconditionals="1" methods="6" coveredmethods="3"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="84" count="3" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+      </file>
       <file name="Dashboard.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/screens/Dashboard.js">
-        <metrics statements="12" coveredstatements="7" conditionals="4" coveredconditionals="3" methods="9" coveredmethods="4"/>
+        <metrics statements="13" coveredstatements="7" conditionals="4" coveredconditionals="3" methods="10" coveredmethods="4"/>
         <line num="86" count="1" type="stmt"/>
         <line num="87" count="1" type="stmt"/>
         <line num="97" count="1" type="stmt"/>
@@ -103,9 +131,10 @@
         <line num="127" count="2" type="stmt"/>
         <line num="153" count="2" type="stmt"/>
         <line num="154" count="0" type="stmt"/>
+        <line num="163" count="0" type="stmt"/>
       </file>
       <file name="InformationsScreen.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/screens/InformationsScreen.js">
-        <metrics statements="26" coveredstatements="11" conditionals="5" coveredconditionals="0" methods="8" coveredmethods="5"/>
+        <metrics statements="27" coveredstatements="11" conditionals="5" coveredconditionals="0" methods="8" coveredmethods="5"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="5" type="stmt"/>
         <line num="17" count="5" type="stmt"/>
@@ -122,16 +151,27 @@
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="58" count="5" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="83" count="1" type="stmt"/>
-        <line num="95" count="1" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="59" count="5" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
+      </file>
+      <file name="Reservation.js" path="/Users/axel/Desktop/projet/Test-Idée/react-native-login-template/src/screens/Reservation.js">
+        <metrics statements="7" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="3"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
       </file>
     </package>
   </project>

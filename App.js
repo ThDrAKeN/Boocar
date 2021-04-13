@@ -11,6 +11,8 @@ import {
   ForgotPasswordScreen,
   Dashboard,
   Description,
+  ConsultationDemandes,
+  Reservation
 } from './src/screens'
 
 import InformationsScreen from './src/screens/InformationsScreen'
@@ -38,6 +40,8 @@ const App = () => {
           <Stack.Screen name="Description" component={Description} />
           <Stack.Screen name="InfoUser" component={InformationsScreen} />
           <Stack.Screen name="Final" component={FinalScreen} />
+          <Stack.Screen name="Demandes" component={ConsultationDemandes} />
+          <Stack.Screen name="Reservation" component={Reservation} />
           {/* <Stack.Screen
             name="ForgotPasswordScreen"
             component={ForgotPasswordScreen}
