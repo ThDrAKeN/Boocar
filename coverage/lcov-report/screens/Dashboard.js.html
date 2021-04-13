@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.64% </span>
+                <span class="strong">53.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/11</span>
+                <span class='fraction'>7/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">44.44% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/7</span>
+                <span class='fraction'>4/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70% </span>
+                <span class="strong">58.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/10</span>
+                <span class='fraction'>7/12</span>
             </div>
         
             
@@ -216,7 +216,18 @@
 <a name='L157'></a><a href='#L157'>157</a>
 <a name='L158'></a><a href='#L158'>158</a>
 <a name='L159'></a><a href='#L159'>159</a>
-<a name='L160'></a><a href='#L160'>160</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -313,9 +324,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -473,9 +495,20 @@ export default class Dashboard extends React.Component {
 &nbsp;
   componentDidMount = async () =&gt; {
 &nbsp;
-    const data = await axios.get('http://192.168.0.15:3000/test')
-<span class="cstat-no" title="statement not covered" >    this.setState({cars: data.data}) </span>
+    // const data = await axios.get('http://192.168.0.15:3000/test')
 &nbsp;
+&nbsp;
+    // Tweak pour éviter les proplèmes de fuites de mémoir avec jest - Seulement si Ce n'est pas jest
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.JEST_WORKER_ID == undefined) {
+<span class="cstat-no" title="statement not covered" >      await axios.get('http://192.168.0.15:3000/test', {</span>
+      })
+        .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; {
+<span class="cstat-no" title="statement not covered" >          this.setState({ cars: response.data })</span>
+        })
+        .catch(<span class="fstat-no" title="function not covered" >fu</span>nction (error) {
+<span class="cstat-no" title="statement not covered" >          console.log(error);</span>
+        })
+    }
   }
 &nbsp;
   // setDates = (dates) =&gt; {
@@ -492,7 +525,7 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       &lt;Background&gt;
-     
+&nbsp;
 &nbsp;
         {/* &lt;DateRangePicker
           onChange={this.setDates}
@@ -504,20 +537,20 @@ export default class Dashboard extends React.Component {
           &lt;Text&gt;Click me!&lt;/Text&gt;
         &lt;/DateRangePicker&gt; */}
 &nbsp;
-        &lt;ScrollView showsVerticalScrollIndicator={false} 
-        refreshControl={
-          &lt;RefreshControl
-            refreshing={this.state.refreshing}
-            onRefresh={this.componentDidMount}
-          /&gt;
-        }&gt;
+        &lt;ScrollView showsVerticalScrollIndicator={false}
+          refreshControl={
+            &lt;RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.componentDidMount}
+            /&gt;
+          }&gt;
           &lt;Header&gt;Disponible &lt;/Header&gt;
 &nbsp;
 &nbsp;
-          {  this.state.cars != null ?
+          {this.state.cars != null ?
             this.state.cars.map((car) =&gt;
               &lt;View style={{ paddingBottom: 15, paddingTop: 15 }} key={car.model} &gt;
-                &lt;VehiculeCard vhInfo={car} navigation={this.props.navigation} callback={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.navigate('Description', car)}</span> book={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.navigate('InfoUser', {idV : car["idV"]})}</span>/&gt;
+                &lt;VehiculeCard vhInfo={car} navigation={this.props.navigation} callback={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.navigate('Description', car)}</span> book={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.navigate('InfoUser', { idV: car["idV"] })}</span> /&gt;
               &lt;/View&gt;
             )
             :
@@ -541,7 +574,7 @@ export default class Dashboard extends React.Component {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Apr 12 2021 20:39:00 GMT+0200 (GMT+02:00)
+                at Tue Apr 13 2021 09:27:02 GMT+0200 (GMT+02:00)
             </div>
         </div>
         <script src="../prettify.js"></script>

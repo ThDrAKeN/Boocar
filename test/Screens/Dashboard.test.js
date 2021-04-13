@@ -41,6 +41,10 @@ const car = [
 
 describe('<Dashboard />', () => {
   const wrapper = shallow(<Dashboard />);
+  it('Rendu', () => {
+    expect(wrapper.children.length).toBe(1);
+  });
+ 
   it('Rendu de deux élements', () => {
     // const tree = renderer.create(<Dashboard />).toJSON();
     // expect(tree.children.length).toBe(1);
