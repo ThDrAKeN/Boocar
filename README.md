@@ -1,15 +1,5 @@
-# React Native Login Template
+# Boocar
 
-This repo is proudly sponsored by:
-
-<a href="https://reactnativemarket.com/" rel="nofollow" target="_blank">
-  <img src="https://raw.githubusercontent.com/venits/react-native-market/master/assets/banner.png" width="280"><br />
-  React Native Templates & Starter Kits and Apps for easier start.
-</a>
-
-## Demo
-
-https://simple-login-template.web.app
 
 ## How to use?
 
@@ -23,27 +13,21 @@ npm install
 yarn install
 ```
 
-3. Run project on iOS / Android.
+3. Run project with expo
 
 ```js
- npm run ios // npm run android
- // or
- yarn ios // yarn android
+ expo start 
 ```
 
 ## Preview
 
-![homescreen](https://raw.githubusercontent.com/venits/react-native-market/master/assets/simple-login-template/homescreen.png)
-![login](https://raw.githubusercontent.com/venits/react-native-market/master/assets/simple-login-template/login.png)
-![register](https://raw.githubusercontent.com/venits/react-native-market/master/assets/simple-login-template/register.png)
-![forgot](https://raw.githubusercontent.com/venits/react-native-market/master/assets/simple-login-template/forgot.png)
-![dashboard](https://raw.githubusercontent.com/venits/react-native-market/master/assets/simple-login-template/dashboard.png)
+![home](https://raw.githubusercontent.com/ThDrAKeN/Boocar/main/assets/pub/home.png?token=AJBLHCWU4VTPX6WNI63YRIDAP2DCC)
+![car1](https://raw.githubusercontent.com/ThDrAKeN/Boocar/main/assets/pub/car1.png?token=AJBLHCWU4VTPX6WNI63YRIDAP2DCC)
+![car2](https://raw.githubusercontent.com/ThDrAKeN/Boocar/main/assets/pub/car2.png?token=AJBLHCWU4VTPX6WNI63YRIDAP2DCC)
+![info](https://raw.githubusercontent.com/ThDrAKeN/Boocar/main/assets/pub/info.png?token=AJBLHCWU4VTPX6WNI63YRIDAP2DCC)
 
-## Support
 
-In case of any questions or problems, please contact me at:
-[hello@reactnativemarket.com](mailto:hello@reactnativemarket.com)
 
-### Happy Coding 🚀
+### Happy Reviewing 🚀
 
-### [ReactNativeMarket.com](http://reactnativemarket.com/)
+### [Axel REGIMBAL](https://thdraken.github.io/Portfolio/)
