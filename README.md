@@ -21,10 +21,10 @@ yarn install
 
 ## Preview
 
-![home](https://raw.githubusercontent.com/ThDrAKeN/Boocar/main/assets/pub/home.png?token=AJBLHCWU4VTPX6WNI63YRIDAP2DCC)
-![car1](https://raw.githubusercontent.com/ThDrAKeN/Boocar/main/assets/pub/car1.png?token=AJBLHCWU4VTPX6WNI63YRIDAP2DCC)
-![car2](https://raw.githubusercontent.com/ThDrAKeN/Boocar/main/assets/pub/car2.png?token=AJBLHCWU4VTPX6WNI63YRIDAP2DCC)
-![info](https://raw.githubusercontent.com/ThDrAKeN/Boocar/main/assets/pub/info.png?token=AJBLHCWU4VTPX6WNI63YRIDAP2DCC)
+![home](https://i.postimg.cc/rFBPR9Pk/home.png)
+![car1](https://i.postimg.cc/4dxLR2mz/car1.png)
+![car2](https://i.postimg.cc/DZpCvQXR/car2.png)
+![info](https://i.postimg.cc/kgPTgg2M/info.png)
 
 
 
