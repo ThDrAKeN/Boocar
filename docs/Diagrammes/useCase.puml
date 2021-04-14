@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+actor Utilisateur as g
+
+rectangle Application {
+    usecase "Visualiser voiture" as AUC1
+    usecase "Visualiser statistique voiture" as AUC2
+    usecase "Demander une reservation" as AUC3
+    usecase "Consulter demandes de reservation" as AUC4
+    usecase "Selectionner un vehicule" as AUC5
+    usecase "S'identifier" as AUC6
+}
+
+g --> AUC1
+g --> AUC2
+g --> AUC3
+g --> AUC4
+
+
+AUC3 --> AUC5 : <<include>>
+
+AUC4 --> AUC6 : <<include>>
+AUC3 --> AUC6 : <<include>>
+AUC2 --> AUC5 : <<include>>
+
+
+' actor Operateur as o
+
+' rectangle BackOffice {
+'     usecase "Visualiser les demandes" as BUC1
+'     usecase "Contacter client" as BUC2
+'    usecase "Gestion du parc" as BUC3
+' }
+
+' o --> BUC1
+' o --> BUC2
+' o --> BUC3
+' BUC2 --> AUC3 : <<include>>
+@enduml

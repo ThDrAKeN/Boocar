@@ -28,9 +28,7 @@ export default class Reservation extends React.Component {
 
 
 
-  navigate = (to, data) => {
-    this.props.navigation.navigate(to, { info: data })
-  };
+ 
 
 
   render() {
@@ -57,7 +55,7 @@ export default class Reservation extends React.Component {
           {this.props.route.params.data != null ?
             this.props.route.params.data.map((car) =>
               <View style={{ paddingBottom: 15, paddingTop: 15 }} key={car.id_attente} >
-                <VehiculeCard etatRes={car.statu} vhInfo={car} navigation={this.props.navigation} callback={() => this.navigate('Description', car)} book={() => this.navigate('InfoUser', { idV: car["idV"] })} />
+                <VehiculeCard etatRes={car.statu} vhInfo={car} navigation={this.props.navigation} />
               </View>
             )
             :
