@@ -65,7 +65,7 @@ export default class Description extends React.Component {
                         <View style={styles.zonePrixBook}>
                             <View mode="contained" color={'white'} style={styles.prix} onPress={() => console.log('Pressed')}>
                                 <Text style={lightOrDark(color) == 'dark' ? { color: 'white', fontWeight: 'bold' } : { color: 'black', fontWeight: 'bold' }} >{prix} €</Text>
-                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab' } : { color: 'black' }} >/mois</Text>
+                                <Text style={lightOrDark(color) == 'dark' ? { color: '#ababab' } : { color: 'black' }} >/j</Text>
                             </View>
                         </View>
 
