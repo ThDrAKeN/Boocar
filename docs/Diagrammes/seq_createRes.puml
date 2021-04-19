@@ -1,0 +1,200 @@
+@startuml
+
+actor Utilisateur as user
+participant "Route" as route
+participant "Navigation" as browser
+participant "Screen Dashboard" as component << Dashboard >>
+participant "Screen Information" as component3 << InformationsScreen >>
+participant "Screen Description" as component2 << Description >>
+participant "Screen Final" as component4 << FinalScreen >>
+participant "Controller" as controller
+
+participant "Route" as routeBE
+participant "Model" as modeleBE
+participant "Database" as db
+
+box "Front-End (React Native)" #LightBlue
+participant browser
+participant route
+participant component
+participant component2
+participant component3
+participant component4
+participant controller
+end box
+
+box "Back-End (ExpressJS / NodeJS / MySQLDriver)" #LightGreen
+participant routeBE
+participant modeleBE
+end box
+
+box "Data Tier (MySQL)" #F29111
+participant db
+end box
+
+user -> browser
+activate browser
+browser -> route : default
+activate route
+route -> component : call component
+
+
+
+activate component
+
+
+
+
+deactivate route
+
+
+
+
+
+
+
+
+
+
+component -> component2 : Call screen : props / book()
+activate component2
+
+
+
+
+
+deactivate component
+
+
+component2 -> controller : onPress(book)
+
+activate controller
+deactivate component2
+
+
+controller --> browser : redirect "InfoUser" : car id
+
+deactivate controller
+browser -> route : InfoUser : navigation props
+activate route
+route -> component3 : Call screen : navigation props
+activate component3
+component3 -> component3 : Render : car props in navigation props
+
+
+deactivate route
+
+
+
+
+
+
+' deactivate controller
+
+component3 -> routeBE : onValidate() \n: HTTP post request
+
+
+activate routeBE
+routeBE -> modeleBE : redirection model \n res
+
+
+activate modeleBE
+modeleBE -> db : request mySQL ORM \n (resolutions json)
+
+
+activate db
+db -> db : traitement
+db --> modeleBE : callback
+deactivate db
+deactivate routeBE
+modeleBE --> controller : reponse
+deactivate modeleBE
+
+
+alt HTTP RESPONSE : OK
+
+    ' controller --> component : http reponse : OK + data
+    ' component -> component2 : Call component : props / callback
+    ' activate component2
+    ' component2 --> component : return x rendered Component
+
+
+
+
+
+
+    ' component2 -> component3 : onPress()
+
+    activate controller
+    deactivate component2
+
+    deactivate component3
+    controller --> browser : redirect "Final" : res id
+    
+ 
+    browser -> route : Final : res id
+    activate route
+    route -> component4 : Call component : res id
+    activate component4
+    component4 -> component4 : Render : res id props in navigation props
+
+
+    deactivate browser
+    deactivate route
+
+
+
+else !HTTP RESPONSE : ERROR
+    deactivate component4
+
+   
+    controller --> component3 : http reponse : NOK
+    activate component3
+    component3 -> component3 : Display ERROR
+    deactivate controller
+
+
+end
+deactivate component2
+deactivate controller
+
+
+
+
+
+
+deactivate modeleBE
+
+
+
+
+
+
+deactivate component
+deactivate controller
+
+
+
+
+
+
+' alt result
+
+'     form -> controler : formSignIn(email,pwd)
+'     controler -> controler : result = checkFields()
+
+'     alt result
+'     	controler -> secure : Secure.authenticate(email, pwd, true);
+'     	secure -> security : onAuthenticated()
+'     	security --> form : renderJSON(0);
+'     	form --> user : display main page
+'     else !result
+'     	controler --> form : renderJSON(1)
+'     	form --> user : display error
+'     end
+
+' else !result
+' 	form --> user : display error
+' end
+
+@enduml

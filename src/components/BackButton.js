@@ -4,7 +4,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-const BackButton = ({ goBack, navigation, color }) => (
+const BackButton = ({ goBack, color }) => (
   <>
     <TouchableOpacity onPress={goBack} style={styles.container}>
       {

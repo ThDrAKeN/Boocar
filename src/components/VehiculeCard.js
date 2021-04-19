@@ -7,7 +7,7 @@ const VehiculeCard = (vhInfo) => (
     <Card style={{ width: '100%', borderRadius: 40, backgroundColor: vhInfo.vhInfo.color }} >
 
 
-        <TouchableOpacity style={{ paddingTop: 10, paddingBottom: 10 }} onPress={vhInfo.etatRes ? null :() => vhInfo.callback('Description', { info: vhInfo.vhInfo })}>
+        <TouchableOpacity style={{ paddingTop: 10, paddingBottom: 10 }} onPress={vhInfo.etatRes ? null : () => vhInfo.callback('Description', { info: vhInfo.vhInfo })}>
             <Card.Content style={styles.card}>
 
                 <Card.Cover style={{
@@ -22,10 +22,27 @@ const VehiculeCard = (vhInfo) => (
                     <View style={styles.carname}>
                         <Title style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.marque}</Title>
                         <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.model}</Paragraph>
-                        {vhInfo.etatRes ? <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white', position: 'absolute', top: 98, fontSize: 10 } : { color: 'black', position: 'absolute', top: 100, fontSize: 10 }}>{vhInfo.vhInfo.id_attente}</Paragraph> :null}
+                        {/* Si data liée à une réservation affiche à la place les infos de la réservation */}
+                        {vhInfo.etatRes
+                            ? <Paragraph style={
+                                lightOrDark(vhInfo.vhInfo.color) == 'dark'
+                                    ? { color: 'white', position: 'absolute', top: 98, fontSize: 10 }
+                                    : { color: 'black', position: 'absolute', top: 100, fontSize: 10 }}>{vhInfo.vhInfo.id_attente}
+                            </Paragraph>
+                            : null}
+
                     </View>
                     <View style={styles.carprice}>
-                        {vhInfo.etatRes ? <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.dateHeure}</Paragraph> :<Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark' ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.prix} €/j</Paragraph>}
+                        {/* Si data liée à une réservation affiche à la place les infos de la réservation */}
+                        {vhInfo.etatRes ?
+                            <Paragraph style={lightOrDark(vhInfo.vhInfo.color) == 'dark'
+                                ? { color: 'white' } : { color: 'black' }}>{vhInfo.vhInfo.dateHeure}</Paragraph>
+                            : <Paragraph style={
+                                lightOrDark(vhInfo.vhInfo.color) == 'dark'
+                                    ? { color: 'white' }
+                                    : { color: 'black' }}>{vhInfo.vhInfo.prix} €/j
+                                </Paragraph>}
+
                     </View>
                 </View>
             </Card.Content>

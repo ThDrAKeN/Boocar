@@ -11,7 +11,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 
 
-describe('<BackButton />', () => {
+describe('Name Helper', () => {
   
  
   it('Test name OK', () => {

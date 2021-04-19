@@ -11,7 +11,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 
 
-describe('<BackButton />', () => {
+describe('Email Helper', () => {
   
  
   it('Test Mail OK', () => {
