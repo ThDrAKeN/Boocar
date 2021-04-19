@@ -33,6 +33,7 @@
     "axios": "^0.21.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
+    "esdoc-jsx-plugin": "^1.0.0",
     "expo": "~39.0.2",
     "expo-status-bar": "~1.0.2",
     "jest-html-reporter": "^3.3.0",
@@ -55,6 +56,8 @@
   "devDependencies": {
     "@babel/core": "~7.9.0",
     "babel-eslint": "^10.1.0",
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
     "eslint": "^7.15.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",

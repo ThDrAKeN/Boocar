@@ -14,9 +14,9 @@ Date.now = jest.fn(() => 1503187200000);
 
 describe('<BackButton />', () => {
   const wrapper = shallow(<BackButton  />);
- 
+
+
   it('Rendu', () => {
-   
     expect(wrapper.children().length).toBe(1);
   });
 });
