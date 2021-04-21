@@ -28,6 +28,19 @@ saveUser = (userinfo) => new Promise((resolve, reject) => {
     })
 });
 
+
+getRes = (userinfo) => new Promise((resolve, reject) => {
+
+
+    db.query(`SELECT voiture.idV , color, img, model, prix, specs, marque.imgLogo, marque.marqueVh as 'marque', reserver.id_attente, reservation.statu, reserver.dateHeure  from Voiture, marque, reserver, reservation  where marque.marqueVh = voiture.marqueVh AND voiture.idV = reserver.idV AND reserver.prenom LIKE "${userinfo.prenom}" AND reserver.numeroTel = "${userinfo.numeroTel}" AND reservation.idR = reserver.idR ORDER BY idV DESC`, userinfo, function (error, results, fields) {
+        if (error) {
+            reject();
+        } else {
+            resolve(results);
+        }
+    })
+});
+
 getDispo = () => new Promise((resolve, reject) => {
 
     db.query("SELECT DISTINCT voiture.idV , color, img, model, prix, specs, marque.imgLogo, marque.marqueVh as 'marque' from Voiture, marque, reserver, reservation  where marque.marqueVh = voiture.marqueVh  AND reservation.idR = reserver.idR  AND voiture.idV not in(select idV from reserver, reservation where reservation.idR = reserver.idR AND reservation.statu = 'pending')", function (error, results, fields) {
@@ -74,5 +87,6 @@ setRes = (userinfo) => new Promise(async (resolve, reject) => {
 // The code below export the above functios so it can be used in other files.
 module.exports = {
     getDispo,
-    setRes
+    setRes,
+    getRes
 };

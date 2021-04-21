@@ -2,9 +2,11 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
+var cors = require('cors')
+app.use(cors())
 
 /* Getting all the db querys */
-const { getDispo, setRes } = require('./models/all');
+const { getDispo, setRes, getRes } = require('./models/all');
 /* This middle ware checks if the token given by the user is right */
 const { authenticate } = require('./middleware/authenticate');
 
@@ -39,6 +41,16 @@ app.post('/createRes', (req, res, next) => {
 
 app.get('/test', (req, res, next) => {
     getDispo().then((result) => {
+        return res.send(result );
+    }).catch((e) => {
+        return res.status(400).send(e);
+    });
+
+});
+
+app.get('/getRes', (req, res, next) => {
+    console.log(req.query)
+    getRes(req.query).then((result) => {
         return res.send(result );
     }).catch((e) => {
         return res.status(400).send(e);
