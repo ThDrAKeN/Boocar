@@ -33,7 +33,7 @@ const InformationsScreen = ({ navigation, route }) => {
     }
     const dataNow =  moment().format('L');
 
-    axios.post('http://192.168.0.15:3000/createRes', {
+    axios.post('http://127.0.0.1:3000/createRes', {
       idV: route.params.info.idV,
       id_attente: randomNum,
       dateHeure: dataNow,

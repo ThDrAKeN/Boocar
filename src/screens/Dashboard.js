@@ -101,7 +101,7 @@ export default class Dashboard extends React.Component {
 
     // Tweak pour éviter les proplèmes de fuites de mémoir avec jest - Seulement si Ce n'est pas jest
     if (process.env.JEST_WORKER_ID == undefined) {
-      await axios.get('http://192.168.0.15:3000/test', {
+      await axios.get('http://127.0.0.1:3000/test', {
       })
         .then(response => {
           this.setState({ cars: response.data })
