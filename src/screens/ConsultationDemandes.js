@@ -52,7 +52,7 @@ const ConsultationDemandes = ({ navigation }) => {
 
 
     // Recuperer les données d'un véhicule
-    await axios.get('http://192.168.0.15:3000/getRes', {
+    await axios.get('http://127.0.0.1:3000/getRes', {
       params: {
         numeroTel: phone.value,
         prenom: prenom.value
